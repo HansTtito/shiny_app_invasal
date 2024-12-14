@@ -1,0 +1,24 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de dependencias
+node_modules/
+venv/
+
+# Archivos de compilación
+*.class
+*.exe
+*.o
+*.log
+
+# Configuración de entornos locales
+.env
+
+# Archivos temporales
+*.tmp
+*.swp
+
+# Archivos CSV específicos
+biologico_salmon.csv
+data_capturas_tasa.csv

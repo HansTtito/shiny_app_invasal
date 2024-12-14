@@ -1,0 +1,13 @@
+name: invasal
+title: invasal
+username: kevin-ttito
+account: kevin-ttito
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13595993
+bundleId: 9519024
+url: https://kevin-ttito.shinyapps.io/invasal/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: bio_salmon.csv|data_capturas_tasa.csv

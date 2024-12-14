@@ -1,0 +1,107 @@
+library(shinydashboard)
+library(shinyWidgets)
+
+carga_datos_tab <- function(){
+  
+  menuItem("Cargar Datos", icon = icon("upload"), tabName = "carga_datos_tab",
+           
+           fileInput(inputId = "captura_tasa_file_tab", 
+                     label = "Archivo de Captura Tasa captura",
+                     multiple = FALSE,
+                     accept = '.csv',
+                     buttonLabel = "Sube csv"),
+           tags$hr(),
+           
+           fileInput(inputId = "biologico_file_tab", 
+                     label = "Archivo Biológico",
+                     multiple = FALSE,
+                     accept = '.csv',
+                     buttonLabel = "Sube csv"),
+           tags$hr()
+  )
+  
+}
+
+
+Descarga_tasa_captura_tab <- function(){
+  # Biomasa y Densidad
+  menuItem("Capturas y Tasa Captura", icon = icon("chart-line"), tabName = "captura_tasa_captura_tab",
+           menuSubItem("Capturas", tabName = "captura_tab"),
+           menuSubItem("Tasa Captura", tabName = "tasa_captura_tab"),
+           menuSubItem("Ambos", tabName = "both_tab")
+  )
+}
+
+
+
+Biologia_tab <- function(){
+  # Biomasa y Densidad
+  menuItem("Biologia", icon = icon("fish"), tabName = "biologia_tab",
+           menuSubItem("Tallas", tabName = "tallas_tab"),
+           menuSubItem("IGS", tabName = "igs_tab")
+  )
+}
+
+
+
+
+
+
+
+
+Capturas_Tab_item <- function(){
+  
+  tabItem(tabName = "tasa_captura_tab",
+          h3("Tasas de captura del Salmón Chinook"),
+
+          tags$hr(),
+          # plotOutput("landing_plots_facet",height = 800),          
+
+
+  )
+  
+}
+
+
+Capturas_Tab_item <- function(){
+  
+  tabItem(tabName = "captura_tab",
+          h3("Capturas del Salmón Chinook"),
+          
+          tags$hr(),
+          plotOutput("landing_plots_facet",height = 800),          
+          tags$hr(),
+          
+          h3("Escapes del Salmón Chinook"),
+          
+          plotOutput("escape_plots_facet",height = 800)
+          
+  )
+  
+}
+
+
+Tallas_Tab_item <- function(){
+  
+  tabItem(tabName = "tallas_tab",
+          h3("Estructura de Tallas del Salmón Chinook"),
+          
+          # Filtros
+          fluidRow(
+            column(4,
+                   uiOutput('options_sex_tallas')
+            )
+          ),
+          
+          # Gráficos
+          tags$hr(),
+          plotOutput("talla_media_plot"),
+          tags$hr(),
+          plotOutput("talla_boxplot_sex")
+  )
+  
+}
+
+
+
+
